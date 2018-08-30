@@ -1,0 +1,36 @@
+# Project: y1
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe -D__DEBUG__
+CC   = gcc.exe -D__DEBUG__
+WINDRES = windres.exe
+RES  = 
+OBJ  = obj/y1.o obj/input3DO.o obj/inputINI.o $(RES)
+LINKOBJ  = obj/y1.o obj/input3DO.o obj/inputINI.o $(RES)
+LIBS =  ../../lib/libagl.a ../../lib/liballeg.a ../../lib/libuser32.a ../../lib/libgdi32.a ../../lib/libopengl32.a ../../lib/libglu32.a   libcoldet.a ../../lib/libglaux.a  -g3 
+INCS = 
+CXXINCS = 
+BIN  = y1.exe
+CXXFLAGS = $(CXXINCS)   -fexceptions -g3
+CFLAGS = $(INCS)   -fexceptions -g3
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before y1.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o "y1.exe" $(LIBS)
+
+obj/y1.o: y1.c
+	$(CPP) -c y1.c -o obj/y1.o $(CXXFLAGS)
+
+obj/input3DO.o: input3DO.c
+	$(CPP) -c input3DO.c -o obj/input3DO.o $(CXXFLAGS)
+
+obj/inputINI.o: inputINI.c
+	$(CPP) -c inputINI.c -o obj/inputINI.o $(CXXFLAGS)
